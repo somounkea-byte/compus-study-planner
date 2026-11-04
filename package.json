@@ -1,0 +1,14 @@
+{
+  "name": "campus-study-planner",
+  "version": "1.0.0",
+  "description": "A simple student study planner for web and desktop",
+  "main": "desktop/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-packager . CampusStudyPlanner --platform=win32 --arch=x64 --out=release --overwrite"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-packager": "^17.1.2"
+  }
+}
