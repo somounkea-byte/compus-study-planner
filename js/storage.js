@@ -1,9 +1,14 @@
 /* LocalStorage data helpers. Data stays in this browser/app profile. */
-const STORAGE_KEYS = {
+const LEGACY_STORAGE_KEYS = {
   tasks: "campusPlanner.tasks.v1",
   subjects: "campusPlanner.subjects.v1",
   sessions: "campusPlanner.sessions.v1"
 };
+
+function userStorageKey(type) {
+  const userId = localStorage.getItem("campusPlanner.currentUser");
+  return `campusPlanner.user.${userId}.${type}.v1`;
+}
 
 function readStorage(key, fallback = []) {
   try {
@@ -26,9 +31,9 @@ function writeStorage(key, value) {
   }
 }
 
-function getTasks() { return readStorage(STORAGE_KEYS.tasks); }
-function saveTasks(items) { return writeStorage(STORAGE_KEYS.tasks, items); }
-function getSubjects() { return readStorage(STORAGE_KEYS.subjects); }
-function saveSubjects(items) { return writeStorage(STORAGE_KEYS.subjects, items); }
-function getSessions() { return readStorage(STORAGE_KEYS.sessions); }
-function saveSessions(items) { return writeStorage(STORAGE_KEYS.sessions, items); }
+function getTasks() { return readStorage(userStorageKey("tasks")); }
+function saveTasks(items) { return writeStorage(userStorageKey("tasks"), items); }
+function getSubjects() { return readStorage(userStorageKey("subjects")); }
+function saveSubjects(items) { return writeStorage(userStorageKey("subjects"), items); }
+function getSessions() { return readStorage(userStorageKey("sessions")); }
+function saveSessions(items) { return writeStorage(userStorageKey("sessions"), items); }

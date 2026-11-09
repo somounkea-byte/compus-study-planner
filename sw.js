@@ -1,9 +1,10 @@
-const CACHE_NAME = 'campus-planner-v1';
+const CACHE_NAME = 'campus-planner-v2';
 const APP_FILES = [
   './',
   './index.html',
   './css/style.css',
   './js/storage.js',
+  './js/auth.js',
   './js/app.js',
   './js/pwa.js',
   './manifest.webmanifest',
