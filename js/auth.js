@@ -22,8 +22,8 @@
     $("registerForm").classList.toggle("hidden", login);
     $("loginForm").classList.toggle("hidden", !login);
     $("authTitle").textContent = login ? "Welcome back" : "Create your account";
-    $("authEyebrow").textContent = login ? "WELCOME BACK" : "WELCOME TO YOUR STUDY SPACE";
-    $("authDescription").textContent = login ? "Log in to continue your study plan." : "Create an account to keep your study plan organized.";
+    $("authEyebrow").textContent = login ? "Welcome back" : "Welcome to your study space";
+    $("authDescription").textContent = login ? "Log in to pick up where you left off." : "Create an account to keep your study plan organized.";
     $("authSwitch").innerHTML = login ? 'New to CampusPlan? <button type="button" id="showRegister">Create account</button>' : 'Already have an account? <button type="button" id="showLogin">Log in</button>';
     showMessage("");
     const toggle = $(login ? "showRegister" : "showLogin");

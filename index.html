@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#2563eb">
+  <meta name="theme-color" content="#4c7dff">
   <meta name="description" content="Organize your classes, assignments, deadlines, and study sessions with Campus Study Planner.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -15,45 +15,45 @@
 <body>
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
-      <a class="brand" href="#dashboard"><span class="brand-mark">C</span><span>Campus<span class="brand-light">Plan</span></span></a>
-      <p class="nav-label">WORKSPACE</p>
+      <a class="brand" href="#dashboard"><span class="brand-mark">🎓</span><span>Campus<span class="brand-light">Plan</span></span></a>
+      <p class="nav-label">Menu</p>
       <nav class="navigation" aria-label="Main navigation">
-        <button class="nav-link active" data-view="dashboard"><span>▦</span> Dashboard</button>
-        <button class="nav-link" data-view="tasks"><span>✓</span> My Tasks</button>
-        <button class="nav-link" data-view="subjects"><span>▤</span> Subjects</button>
-        <button class="nav-link" data-view="schedule"><span>▦</span> Study Schedule</button>
+        <button class="nav-link active" data-view="dashboard"><span class="nav-icon">🏠</span> Dashboard</button>
+        <button class="nav-link" data-view="tasks"><span class="nav-icon">✅</span> My Tasks</button>
+        <button class="nav-link" data-view="subjects"><span class="nav-icon">📚</span> Subjects</button>
+        <button class="nav-link" data-view="schedule"><span class="nav-icon">🗓️</span> Study Schedule</button>
       </nav>
       <div class="sidebar-bottom">
-        <div class="tip-card"><span class="tip-icon">✦</span><strong>Small steps matter</strong><p>Make a little progress every day.</p></div>
-        <p class="sidebar-caption">Campus Study Planner · v1.0</p>
+        <div class="tip-card"><span class="tip-icon">🌱</span><strong>Small steps matter</strong><p>A little progress every day adds up.</p></div>
+        <p class="sidebar-caption">Campus Study Planner v1.0</p>
       </div>
     </aside>
 
     <main class="main-area">
       <header class="topbar">
         <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
-        <div class="page-heading"><p class="eyebrow" id="todayLabel">YOUR STUDY SPACE</p><h1 id="pageTitle">Dashboard</h1></div>
-        <div class="topbar-actions"><span class="date-chip" id="headerDate"></span><button class="install-button" id="installButton" type="button">↓ Install app</button><div class="account-area"><span class="account-name" id="accountName"></span><button class="logout-button" id="logoutButton" type="button">Log out</button><div class="avatar" id="userAvatar">S</div></div></div>
+        <div class="page-heading"><p class="eyebrow" id="todayLabel">Your study space</p><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="topbar-actions"><span class="date-chip" id="headerDate"></span><button class="install-button" id="installButton" type="button">Install app</button><div class="account-area"><span class="account-name" id="accountName"></span><button class="logout-button" id="logoutButton" type="button">Log out</button><div class="avatar" id="userAvatar">S</div></div></div>
       </header>
 
       <section class="view active" id="view-dashboard">
         <div class="hero-card">
-          <div><p class="hero-kicker">YOUR DAILY PLAN</p><h2>Make today count.</h2><p>Stay organized, focus on your goals, and keep moving forward.</p><button class="hero-button" data-go="tasks">＋ Add a task</button></div>
-          <div class="hero-art" aria-hidden="true"><div class="art-circle">✎</div><div class="art-book">▤</div><div class="art-star">✦</div></div>
+          <div><h2 id="heroTitle">Make today count.</h2><p id="heroText">Stay organized, take it one step at a time, and celebrate every task you finish.</p><button class="hero-button" data-go="tasks">+ Add a task</button></div>
+          <div class="hero-art" aria-hidden="true"><div class="art-circle">📝</div><div class="art-book">📚</div><div class="art-star">⭐</div></div>
         </div>
         <div class="stats-grid">
-          <article class="stat-card"><div class="stat-top"><span>Total tasks</span><span class="stat-icon blue">▤</span></div><strong id="statTotal">0</strong><small>All your study tasks</small></article>
-          <article class="stat-card"><div class="stat-top"><span>Completed</span><span class="stat-icon green">✓</span></div><strong id="statCompleted">0</strong><small>Tasks finished</small></article>
-          <article class="stat-card"><div class="stat-top"><span>Pending</span><span class="stat-icon orange">◷</span></div><strong id="statPending">0</strong><small>Still to do</small></article>
-          <article class="stat-card"><div class="stat-top"><span>Progress</span><span class="stat-icon purple">↗</span></div><strong id="statProgress">0%</strong><small>Completion rate</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Total tasks</span><span class="stat-icon blue">📋</span></div><strong id="statTotal">0</strong><small>All your study tasks</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Completed</span><span class="stat-icon green">✅</span></div><strong id="statCompleted">0</strong><small>Tasks you finished</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Pending</span><span class="stat-icon orange">⏳</span></div><strong id="statPending">0</strong><small>Still to do</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Progress</span><span class="stat-icon purple">🚀</span></div><strong id="statProgress">0%</strong><small>Completion rate</small></article>
         </div>
         <div class="dashboard-grid">
           <article class="panel task-panel">
-            <div class="panel-heading"><div><h3>Upcoming tasks</h3><p>Your next deadlines</p></div><button class="text-button" data-go="tasks">View all →</button></div>
+            <div class="panel-heading"><div><h3>Upcoming tasks</h3><p>What to tackle next</p></div><button class="text-button" data-go="tasks">See all</button></div>
             <div id="upcomingList" class="compact-list"></div>
           </article>
           <article class="panel progress-panel">
-            <div class="panel-heading"><div><h3>Study progress</h3><p>Keep building your habits</p></div></div>
+            <div class="panel-heading"><div><h3>Your progress</h3><p>You are doing great</p></div></div>
             <div class="progress-ring-wrap"><div class="progress-ring" id="progressRing"><div><strong id="ringPercent">0%</strong><span>completed</span></div></div></div>
             <div class="progress-legend"><span><i class="legend-dot done"></i>Completed</span><span><i class="legend-dot todo"></i>Remaining</span></div>
             <p class="motivation" id="motivationText">Every completed task is a step forward.</p>
@@ -62,29 +62,29 @@
       </section>
 
       <section class="view" id="view-tasks">
-        <div class="section-intro"><div><h2>My Tasks</h2><p>Create and manage your assignments and homework.</p></div><button class="primary-button" id="openTaskModal">＋ New task</button></div>
-        <div class="toolbar"><div class="search-box"><span>⌕</span><input id="taskSearch" type="search" placeholder="Search tasks..."></div><select id="taskStatusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="pending">Pending</option><option value="completed">Completed</option></select><select id="taskSubjectFilter" aria-label="Filter by subject"><option value="all">All subjects</option></select></div>
-        <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>Task</th><th>Subject</th><th>Deadline</th><th>Priority</th><th>Status</th><th>Actions</th></tr></thead><tbody id="tasksTable"></tbody></table></div><div id="tasksEmpty" class="empty-state hidden"><div>✓</div><h3>No tasks found</h3><p>Add a task or change your filters.</p></div></div>
+        <div class="section-intro"><div><h2>My Tasks</h2><p>Create and manage your assignments and homework.</p></div><button class="primary-button" id="openTaskModal">+ New task</button></div>
+        <div class="toolbar"><div class="search-box"><span>🔍</span><input id="taskSearch" type="search" placeholder="Search tasks..."></div><select id="taskStatusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="pending">Pending</option><option value="completed">Completed</option></select><select id="taskSubjectFilter" aria-label="Filter by subject"><option value="all">All subjects</option></select></div>
+        <div class="panel table-panel"><div class="table-wrap"><table><thead><tr><th>Task</th><th>Subject</th><th>Deadline</th><th>Priority</th><th>Status</th><th>Actions</th></tr></thead><tbody id="tasksTable"></tbody></table></div><div id="tasksEmpty" class="empty-state hidden"><div>🔎</div><h3>No tasks found</h3><p>Add a new task or try different filters.</p></div></div>
       </section>
 
       <section class="view" id="view-subjects">
-        <div class="section-intro"><div><h2>Subjects</h2><p>Keep your study topics organized.</p></div><button class="primary-button" id="openSubjectModal">＋ Add subject</button></div>
+        <div class="section-intro"><div><h2>Subjects</h2><p>Keep your study topics organized.</p></div><button class="primary-button" id="openSubjectModal">+ Add subject</button></div>
         <div id="subjectsGrid" class="subjects-grid"></div>
-        <div id="subjectsEmpty" class="empty-state panel hidden"><div>▤</div><h3>No subjects yet</h3><p>Add your first subject to organize your tasks.</p></div>
+        <div id="subjectsEmpty" class="empty-state panel hidden"><div>📚</div><h3>No subjects yet</h3><p>Add your first subject to organize your tasks.</p></div>
       </section>
 
       <section class="view" id="view-schedule">
-        <div class="section-intro"><div><h2>Study Schedule</h2><p>Plan your study sessions and make time for learning.</p></div><button class="primary-button" id="openSessionModal">＋ Add session</button></div>
-        <div class="panel schedule-panel"><div class="panel-heading"><div><h3>Your study sessions</h3><p>Upcoming sessions are shown first.</p></div></div><div id="scheduleList" class="schedule-list"></div><div id="scheduleEmpty" class="empty-state hidden"><div>◷</div><h3>No study sessions</h3><p>Add a session to create your study plan.</p></div></div>
+        <div class="section-intro"><div><h2>Study Schedule</h2><p>Plan your study sessions and make time for learning.</p></div><button class="primary-button" id="openSessionModal">+ Add session</button></div>
+        <div class="panel schedule-panel"><div class="panel-heading"><div><h3>Your study sessions</h3><p>Upcoming sessions are shown first.</p></div></div><div id="scheduleList" class="schedule-list"></div><div id="scheduleEmpty" class="empty-state hidden"><div>🗓️</div><h3>No study sessions yet</h3><p>Add a session to start your study plan.</p></div></div>
       </section>
 
-      <footer class="app-footer">Made for students · Keep learning, one task at a time.</footer>
+      <footer class="app-footer">Made for students. Keep learning, one task at a time.</footer>
     </main>
   </div>
 
   <!-- Task modal -->
   <dialog class="modal" id="taskModal"><form id="taskForm" method="dialog">
-    <div class="modal-heading"><div><p class="eyebrow">TASK DETAILS</p><h2 id="taskModalTitle">Create a task</h2></div><button type="button" class="icon-button" data-close="taskModal" aria-label="Close">×</button></div>
+    <div class="modal-heading"><div><p class="eyebrow">Task details</p><h2 id="taskModalTitle">Create a task</h2></div><button type="button" class="icon-button" data-close="taskModal" aria-label="Close">×</button></div>
     <label>Task name<input id="taskTitle" maxlength="100" required placeholder="e.g. Finish JavaScript homework"></label>
     <div class="form-row"><label>Subject<select id="taskSubject" required></select></label><label>Deadline<input id="taskDeadline" type="date" required></label></div>
     <label>Priority<select id="taskPriority"><option value="Low">Low</option><option value="Medium" selected>Medium</option><option value="High">High</option></select></label>
@@ -93,7 +93,7 @@
 
   <!-- Subject modal -->
   <dialog class="modal" id="subjectModal"><form id="subjectForm" method="dialog">
-    <div class="modal-heading"><div><p class="eyebrow">SUBJECT DETAILS</p><h2 id="subjectModalTitle">Add a subject</h2></div><button type="button" class="icon-button" data-close="subjectModal" aria-label="Close">×</button></div>
+    <div class="modal-heading"><div><p class="eyebrow">Subject details</p><h2 id="subjectModalTitle">Add a subject</h2></div><button type="button" class="icon-button" data-close="subjectModal" aria-label="Close">×</button></div>
     <label>Subject name<input id="subjectName" maxlength="60" required placeholder="e.g. Web Development"></label>
     <label>Short description<input id="subjectDescription" maxlength="120" placeholder="e.g. HTML, CSS and JavaScript"></label>
     <label>Color<select id="subjectColor"><option value="blue">Blue</option><option value="purple">Purple</option><option value="green">Green</option><option value="orange">Orange</option><option value="pink">Pink</option></select></label>
@@ -102,7 +102,7 @@
 
   <!-- Study session modal -->
   <dialog class="modal" id="sessionModal"><form id="sessionForm" method="dialog">
-    <div class="modal-heading"><div><p class="eyebrow">STUDY PLAN</p><h2>Add a study session</h2></div><button type="button" class="icon-button" data-close="sessionModal" aria-label="Close">×</button></div>
+    <div class="modal-heading"><div><p class="eyebrow">Study plan</p><h2>Add a study session</h2></div><button type="button" class="icon-button" data-close="sessionModal" aria-label="Close">×</button></div>
     <label>Session title<input id="sessionTitle" maxlength="100" required placeholder="e.g. Practice JavaScript"></label>
     <div class="form-row"><label>Subject<select id="sessionSubject"></select></label><label>Date<input id="sessionDate" type="date" required></label></div>
     <div class="form-row"><label>Start time<input id="sessionStart" type="time" required></label><label>End time<input id="sessionEnd" type="time" required></label></div>
@@ -113,8 +113,8 @@
 
   <section class="auth-screen" id="authScreen" aria-label="Account access">
     <div class="auth-card">
-      <div class="auth-brand"><span class="brand-mark">C</span><span>Campus<span class="brand-light">Plan</span></span></div>
-      <p class="eyebrow" id="authEyebrow">WELCOME TO YOUR STUDY SPACE</p>
+      <div class="auth-brand"><span class="brand-mark">🎓</span><span>Campus<span class="brand-light">Plan</span></span></div>
+      <p class="eyebrow" id="authEyebrow">Welcome to your study space</p>
       <h1 id="authTitle">Create your account</h1>
       <p class="auth-description" id="authDescription">Create an account to keep your study plan organized.</p>
       <form id="registerForm" class="auth-form">

@@ -63,18 +63,18 @@ function renderDashboard() {
   $("#statPending").textContent = pending;
   $("#statProgress").textContent = `${percent}%`;
   $("#ringPercent").textContent = `${percent}%`;
-  $("#progressRing").style.background = `conic-gradient(var(--blue) ${percent * 3.6}deg, #eaf0fa 0deg)`;
-  $("#motivationText").textContent = percent === 100 && total ? "Amazing work! All your tasks are complete." : percent >= 50 ? "Great progress. Keep going!" : "Every completed task is a step forward.";
+  $("#progressRing").style.background = `conic-gradient(var(--blue) ${percent * 3.6}deg, var(--track) 0deg)`;
+  $("#motivationText").textContent = percent === 100 && total ? "Amazing work! All your tasks are done 🎉" : percent >= 50 ? "Great progress, keep it up! 💪" : "Every finished task is a step forward 🌟";
 
   const upcoming = tasks.filter(t => !t.completed).sort((a,b) => a.deadline.localeCompare(b.deadline)).slice(0,5);
   const container = $("#upcomingList");
   if (!upcoming.length) {
-    container.innerHTML = `<div class="empty-state"><div>✓</div><h3>You're all caught up</h3><p>Add a task when you have something to do.</p></div>`;
+    container.innerHTML = `<div class="empty-state"><div>🎉</div><h3>You're all caught up!</h3><p>Add a task whenever you have something new to do.</p></div>`;
     return;
   }
   container.innerHTML = upcoming.map(task => {
     const subject = subjects.find(s => s.id === task.subjectId);
-    return `<div class="compact-task"><i class="task-dot"></i><div class="compact-task-main"><strong>${escapeHTML(task.title)}</strong><small>${escapeHTML(subject?.name || "No subject")}</small></div><span class="compact-date">${formatDate(task.deadline)}</span></div>`;
+    return `<div class="compact-task"><i class="task-dot ${escapeHTML(task.priority.toLowerCase())}"></i><div class="compact-task-main"><strong>${escapeHTML(task.title)}</strong><small>${escapeHTML(subject?.name || "No subject")}</small></div><span class="compact-date">${formatDate(task.deadline)}</span></div>`;
   }).join("");
 }
 
@@ -137,14 +137,14 @@ function renderSubjects() {
     return;
   }
   $("#subjectsEmpty").classList.add("hidden");
-  const icons = {blue:"▤",purple:"✦",green:"✓",orange:"◷",pink:"♡"};
+  const icons = {blue:"📘",purple:"🔮",green:"🌿",orange:"🍊",pink:"🌸"};
   grid.innerHTML = subjects.map(subject => {
     const count = tasks.filter(t => t.subjectId === subject.id).length;
-    return `<article class="subject-card">
-      <div class="subject-top"><span class="subject-symbol ${subject.color}">${icons[subject.color] || "▤"}</span>
+    return `<article class="subject-card ${escapeHTML(subject.color)}">
+      <div class="subject-top"><span class="subject-symbol ${subject.color}">${icons[subject.color] || "📘"}</span>
       <div class="subject-card-actions"><button class="mini-button" data-action="edit-subject" data-id="${subject.id}">Edit</button><button class="mini-button danger" data-action="delete-subject" data-id="${subject.id}">Delete</button></div></div>
       <h3>${escapeHTML(subject.name)}</h3><p>${escapeHTML(subject.description || "No description")}</p>
-      <div class="subject-meta"><span>${count} ${count === 1 ? "task" : "tasks"}</span><span>${escapeHTML(subject.color)} theme</span></div>
+      <div class="subject-meta"><span>${count} ${count === 1 ? "task" : "tasks"}</span></div>
     </article>`;
   }).join("");
 }
@@ -278,7 +278,7 @@ $("#taskSubjectFilter").addEventListener("change", renderTasks);
 
 function initialize() {
   $("#headerDate").textContent = new Date().toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});
-  $("#todayLabel").textContent = new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"}).toUpperCase();
+  $("#todayLabel").textContent = new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric"});
   // Helpful starter subjects so the first task can be created immediately.
   if (!subjects.length) {
     subjects = [
@@ -291,3 +291,13 @@ function initialize() {
   refreshAll();
 }
 initialize();
+
+// Friendly greeting on the dashboard hero (follows the logged-in account name)
+function updateGreeting() {
+  const name = ($("#accountName").textContent || "").trim().split(/\s+/)[0];
+  const hour = new Date().getHours();
+  const part = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  $("#heroTitle").textContent = name ? `${part}, ${name}! 👋` : "Make today count.";
+}
+new MutationObserver(updateGreeting).observe($("#accountName"), {childList: true, characterData: true, subtree: true});
+updateGreeting();
