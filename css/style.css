@@ -4,3 +4,8 @@
 @media(max-width:1050px){.main-area{padding:25px}.stats-grid{grid-template-columns:repeat(2,1fr)}.dashboard-grid{grid-template-columns:1fr 1fr}.subjects-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.sidebar{position:fixed;z-index:15;left:-260px;top:0;bottom:0;transition:left .25s;box-shadow:var(--shadow)}.sidebar.open{left:0}.main-area{padding:20px 16px}.mobile-menu{display:block;margin-right:10px}.topbar{justify-content:flex-start}.page-heading{flex:1}.topbar-actions{gap:8px}.date-chip{display:none}.hero-card{padding:25px}.hero-art{width:110px}.art-circle{width:85px;height:85px}.dashboard-grid{grid-template-columns:1fr}.toolbar{flex-wrap:wrap}.search-box{max-width:none;flex-basis:100%}.toolbar select{flex:1}.subjects-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.stats-grid{gap:9px}.stat-card{padding:15px}.stat-card>strong{font-size:24px}.hero-card h2{font-size:22px}.hero-art{display:none}.section-intro{align-items:flex-start;gap:12px}.section-intro .primary-button{white-space:nowrap;padding:10px}.subjects-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.session-time{white-space:normal;text-align:right}}
+
+/* PWA install control */
+.install-button{border:0;border-radius:9px;padding:10px 13px;background:#edf3ff;color:var(--blue);font:700 12px 'DM Sans',sans-serif;cursor:pointer;white-space:nowrap}
+.install-button:hover{background:#dfeaff}
+@media(max-width:480px){.install-button{padding:9px 10px;font-size:11px}.topbar-actions{gap:6px}.avatar{width:34px;height:34px}}

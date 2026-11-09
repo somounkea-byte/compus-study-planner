@@ -1,62 +1,48 @@
-# Campus Study Planner
+# Campus Study Planner (PWA)
 
-A small study planner built with HTML, CSS, and JavaScript. The same interface runs in a web browser and as a Windows/macOS/Linux desktop window using Electron.
+A responsive study planner that works in desktop and mobile browsers and can be installed as an app.
 
 ## Features
+- Dashboard, tasks, subjects, and study schedule
+- Add, edit, complete, search, filter, and delete tasks
+- Save data in browser LocalStorage
+- Responsive desktop and mobile layout
+- Installable Progressive Web App (PWA)
+- Offline access after the first successful load
 
-- Dashboard with task statistics and completion progress
-- Create, edit, complete, undo, delete, search, and filter tasks
-- Add, edit, and delete subjects
-- Create and delete study sessions
-- Upcoming task list
-- Responsive blue-and-white design
-- LocalStorage persistence
+## Run locally
+A service worker does not work when you open `index.html` directly with `file://`.
+Use VS Code Live Server, or run a local server:
 
-## Requirements
+```bash
+python -m http.server 8000
+```
 
-- A modern web browser for the website
-- Node.js and npm for the Electron desktop version
+Then open `http://localhost:8000`.
 
-## Run as a website
+## Publish online
+Upload the contents of this folder to a static web host such as GitHub Pages, Netlify, or Vercel. The site must use HTTPS for PWA installation and offline caching to work on real devices.
 
-Open `index.html` in a browser, or use the VS Code Live Server extension.
+## Install on devices
+- **Android (Chrome):** Open the published HTTPS website, tap **Install app** (or use the browser menu → Install app / Add to Home screen).
+- **iPhone/iPad (Safari):** Open the website, tap **Share**, then **Add to Home Screen**.
+- **Desktop (Chrome/Edge):** Open the HTTPS website and click **Install app** or the install icon in the address bar.
 
-## Run as a desktop application
+## Important data note
+Tasks, subjects, and sessions are saved in the browser's LocalStorage. They remain on that browser/device and are not automatically synchronized between devices. Clearing browser data may remove them.
 
-Open a terminal in this project folder and run:
+## Desktop application (optional)
+The original Electron desktop setup is retained. Install Node.js, then run:
 
 ```bash
 npm install
 npm start
 ```
 
-## Build a Windows desktop package
+Build a Windows package with:
 
 ```bash
-npm install
 npm run pack
 ```
 
-The packaged application will be placed in the `release` folder. Packaging should be performed on the operating system you want to target.
-
-## Data storage
-
-The app uses browser LocalStorage. Website data and desktop-app data are stored separately. They do not sync between devices or browser profiles. Export/import and cloud sync are not included in this first version.
-
-## Project structure
-
-```text
-campus-study-planner/
-├── index.html
-├── package.json
-├── README.md
-├── css/
-│   └── style.css
-├── js/
-│   ├── storage.js
-│   └── app.js
-├── desktop/
-│   └── main.js
-└── assets/
-    └── images/
-```
+Build the desktop package on the operating system you want to target.

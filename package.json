@@ -5,7 +5,8 @@
   "main": "desktop/main.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-packager . CampusStudyPlanner --platform=win32 --arch=x64 --out=release --overwrite"
+    "pack": "electron-packager . CampusStudyPlanner --platform=win32 --arch=x64 --out=release --overwrite",
+    "serve": "python -m http.server 8000"
   },
   "devDependencies": {
     "electron": "^39.0.0",
